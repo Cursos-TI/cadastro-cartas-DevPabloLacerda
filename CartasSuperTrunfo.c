@@ -1,17 +1,18 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das cartas
-// Objetivo: No nível novato você deve criar as cartas representando as cidades utilizando scanf para entrada de dados e printf para exibir as informações.
-
-int main() {
+int main(){
     
-    int População1, Número_de_Pontos_Turísticos1; //Numero inteiro
-    int População2, Número_de_Pontos_Turísticos2; //Separando em carta 1 e 2
+    int Número_de_Pontos_Turísticos1; //Numero inteiro
+    int Número_de_Pontos_Turísticos2; //Separando em carta 1 e 2
+    float População1, População2;
     float Área1, PIB1, Área2, PIB2; //ponto flutuante no formato padrão
     char Estado1, Estado2; //apenas uma letra
     char Código1[10], Código2[10]; //conjunto de caracteres 
     char Nome_da_Cidade1[15], Nome_da_Cidade2[15]; //conjunto de caracteres 
+    float Densidade1, Densidade2;
+    float PerCapita1, PerCapita2;
+
+
 
     //informações da carta 1 
     
@@ -25,7 +26,7 @@ int main() {
     scanf ("%s", Nome_da_Cidade1);
 
     printf ("População: ");
-    scanf ("%d", &População1);
+    scanf ("%f", &População1);
 
     printf ("Área: ");
     scanf ("%f", &Área1);
@@ -35,6 +36,10 @@ int main() {
 
     printf ("Número de Pontos Turísticos: ");
     scanf ("%d", &Número_de_Pontos_Turísticos1);
+
+    Densidade1 = População1 / Área1;
+   
+    PerCapita1 = PIB1 / População1;
   
     //carta 2
 
@@ -48,7 +53,7 @@ int main() {
     scanf ("%s", Nome_da_Cidade2);
 
     printf ("População: ");
-    scanf ("%d", &População2);
+    scanf ("%f", &População2);
 
     printf ("Área: ");
     scanf ("%f", &Área2);
@@ -59,16 +64,23 @@ int main() {
     printf ("Número de Pontos Turísticos: ");
     scanf ("%d", &Número_de_Pontos_Turísticos2);
 
+    Densidade2 = População2 / Área2;
+    
+    PerCapita2 = PIB2 / População2;
+
+   
     //exibindo resutado das duas cartas abaixo
 
-    printf ("\nCarta 1: \n");
+    printf ("Carta 1: \n");
     printf ("Estado: %c \n", Estado1);
     printf ("Código: %s \n", Código1);
     printf ("Nome da Cidade: %s\n", Nome_da_Cidade1);
-    printf ("População: %d \n", População1);
+    printf ("População: %f \n", População1);
     printf ("Área: %.2f km² \n", Área1);
     printf ("PIB: %.2f bilhões de reais\n", PIB1);
     printf ("Número de Pontos Turísticos: %d\n", Número_de_Pontos_Turísticos1);
+    printf ("Densidade Populacional: %f hab/km²\n", Densidade1);
+    printf ("PIB per Capita: %f reais\n", PerCapita1);
     
     //info carta 2
 
@@ -76,11 +88,13 @@ int main() {
     printf ("Estado: %c \n", Estado2);
     printf ("Código: %s \n", Código2);
     printf ("Nome da Cidade: %s \n", Nome_da_Cidade2);
-    printf ("População: %d \n", População2);
+    printf ("População: %f \n", População2);
     printf ("Área: %.2f km² \n", Área2);
     printf ("PIB: %.2f bilhões de reais\n", PIB2);
     printf ("Número de Pontos Turísticos: %d\n", Número_de_Pontos_Turísticos2);
+    printf ("Densidade Populacional: %f hab/km²\n", Densidade2);
+    printf ("PIB per Capita: %f reais\n", PerCapita2);
     
     return 0;
     
-}    
+}
